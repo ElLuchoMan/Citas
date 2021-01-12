@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "Citas",
+      "public": "dist/Citas",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
