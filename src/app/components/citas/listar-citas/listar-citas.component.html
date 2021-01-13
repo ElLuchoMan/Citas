@@ -1,1 +1,51 @@
-<p>listar-citas works!</p>
+<div clas="container mt-4">
+    <div class="card text-center">
+      <div class="card-body">
+        <span class="h3">Listado de Citas</span>
+        <a
+          class="link-primary float-end"
+          type="button"
+          routerLink="/crearCitas"
+          ><i class="fas fa-user-plus"></i> Agregar</a
+        >
+        <h5 *ngIf="citas.length == 0" style="margin-top: 30px">
+          No hay datos para mostrar
+        </h5>
+        <table
+          *ngIf="citas.length > 0"
+          class="table table-bordered border-primary mt-5"
+        >
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Facultad</th>
+              <th>Tipo de Cita</th>
+              <th>Especialista</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cita of citas">
+              <td>{{ cita.nombre }}</td>
+              <td>{{cita.fecha}}</td>
+              <td>{{cita.hora}}</td>
+              <td>{{ cita.facultad }}</td>
+              <td>{{cita.tipocita}}</td>
+              <td>{{cita.especialista}}</td>
+             
+  
+              <td>
+                <i
+                  class="fas fa-user-edit fa-lg text-info"
+                  [routerLink]="['/editarCita', cita.id]"
+                >
+                </i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
