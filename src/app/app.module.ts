@@ -11,6 +11,14 @@ import { CrearTipoCitasComponent } from './components/tipo-cita/crear-tipo-citas
 import { ListarTipoCitasComponent } from './components/tipo-cita/listar-tipo-citas/listar-tipo-citas.component';
 import { CrearUsuariosComponent } from './components/usuarios/crear-usuarios/crear-usuarios.component';
 import { ListarUsuariosComponent } from './components/usuarios/listar-usuarios/listar-usuarios.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment.prod';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -24,11 +32,20 @@ import { ListarUsuariosComponent } from './components/usuarios/listar-usuarios/l
     ListarTipoCitasComponent,
     CrearUsuariosComponent,
     ListarUsuariosComponent,
+    NavbarComponent,
+    HomeComponent,
+    
    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule 
+
   ],
   providers: [],
   bootstrap: [AppComponent]

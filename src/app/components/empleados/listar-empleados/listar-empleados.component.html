@@ -1,1 +1,40 @@
-<p>listar-empleados works!</p>
+<div clas="container mt-4">
+    <div class="card text-center" >
+      <div class="card-body">
+              <h3>Listado de Especialistas</h3>
+              <h5 *ngIf="empleados.length==0" style="margin-top: 30px;" >No hay datos para mostrar</h5>
+                <table *ngIf="empleados.length > 0" class= "table table-striped mt-5">
+                  <thead>
+                    <tr>
+                      <th>Identificación</th>
+                      <th>Nombre</th>
+                      <th>Apellidos</th>
+                      <th>Especialidad</th>
+                      <th>Sede</th>
+                      <th>Teléfono</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let empleado of empleados">
+                      <td>{{empleado.identificacion}} </td>
+                      <td>{{empleado.nombre}} </td>
+                      <td>{{empleado.apellido1}} + ' ' +{{empleado.apellido2}} </td>
+                      <td>{{empleado.especialidad}} </td>
+                      <td>{{empleado.sede}} </td>
+                      <td>{{empleado.telefono}} </td>
+                      <td>
+                          <i class="fas fa-user-edit fa-lg text-info mr-5" [routerLink]="['/editarEmpleados',empleado.id]"></i>
+                          <i (click)="eliminarEmpleado(empleado.id)"class="fas fa-user-minus fa-lg text-danger md-2"></i>
+                      </td>
+                    </tr>
+                                
+                   
+                  </tbody>
+                </table>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-dark" type="button" routerLink="/crearEmpleados">Agregar</button>
+                </div>
+                       </div>
+      </div>
+    </div>
