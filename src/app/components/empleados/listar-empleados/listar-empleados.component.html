@@ -1,40 +1,54 @@
 <div clas="container mt-4">
-    <div class="card text-center" >
-      <div class="card-body">
-              <span class="h3">Listado de Especialistas</span>
-                <a class="link-primary float-end  " type="button" routerLink="/crearEmpleados"><i class="fas fa-user-plus"></i> Agregar</a>
-                <h5 *ngIf="empleados.length==0" style="margin-top: 30px;" >No hay datos para mostrar</h5>
-                <table *ngIf="empleados.length > 0" class= "table table-bordered border-primary mt-5">
-                  <thead>
-                    <tr>
-                      <th>Identificación</th>
-                      <th>Nombre</th>
-                      <th>Apellidos</th>
-                      <th>Especialidad</th>
-                      <th>Sede</th>
-                      <th>Teléfono</th>
-                      <th>Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let empleado of empleados">
-                      <td>{{empleado.identificacion}} </td>
-                      <td>{{empleado.nombre1}} {{empleado.nombre2}} </td>
-                      <td>{{empleado.apellido1}} {{empleado.apellido2}} </td>
-                      <td>{{empleado.especialidad}} </td>
-                      <td>{{empleado.sede}} </td>
-                      <td>{{empleado.telefono}} </td>
-                      <td>
-                          <i class="fas fa-user-edit fa-lg text-info" [routerLink]="['/editarEmpleados',empleado.id]">  </i>
-                          <i (click)="eliminarEmpleado(empleado.id)"class="fas fa-user-minus fa-lg text-danger ms-3">  </i>
-                      </td>
-                    </tr>
-                    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" class="mat-elevation-z8">
-                    </mat-paginator>              
-                   
-                  </tbody>
-                </table>
-                
-                       </div>
-      </div>
+  <div class="card text-center">
+    <div class="card-body">
+      <span class="h3">Listado de Especialistas</span>
+      <a
+        class="link-primary float-end"
+        type="button"
+        routerLink="/crearEmpleados"
+        ><i class="fas fa-user-plus"></i> Agregar</a
+      >
+      <h5 *ngIf="empleados.length == 0" style="margin-top: 30px">
+        No hay datos para mostrar
+      </h5>
+      <table
+        *ngIf="empleados.length > 0"
+        class="table table-bordered border-primary mt-5"
+      >
+        <thead>
+          <tr>
+            <th>Identificación</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Especialidad</th>
+            <th>Sede</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empleado of empleados">
+            <td>{{ empleado.identificacion }}</td>
+            <td>{{ empleado.nombre1 }} {{ empleado.nombre2 }}</td>
+            <td>{{ empleado.apellido1 }} {{ empleado.apellido2 }}</td>
+            <td>{{ empleado.especialidad }}</td>
+            <td>{{ empleado.sede }}</td>
+            <td>{{ empleado.telefono }}</td>
+            <td>
+              <i
+                class="fas fa-user-edit fa-lg text-info"
+                [routerLink]="['/editarEmpleados', empleado.id]"
+              >
+              </i>
+              <i
+                (click)="eliminarEmpleado(empleado.id)"
+                class="fas fa-user-minus fa-lg text-danger ms-3"
+              >
+              </i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
