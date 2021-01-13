@@ -2,8 +2,11 @@
     <div class="card text-center" >
       <div class="card-body">
               <h3>Listado de Especialistas</h3>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary" type="button" routerLink="/crearEmpleados">Agregar</button>
+              </div>
               <h5 *ngIf="empleados.length==0" style="margin-top: 30px;" >No hay datos para mostrar</h5>
-                <table *ngIf="empleados.length > 0" class= "table table-striped mt-5">
+                <table *ngIf="empleados.length > -1" class= "table table-bordered border-primary mt-5">
                   <thead>
                     <tr>
                       <th>Identificación</th>
@@ -12,14 +15,14 @@
                       <th>Especialidad</th>
                       <th>Sede</th>
                       <th>Teléfono</th>
-                      <th></th>
+                      <th>Acciones</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr *ngFor="let empleado of empleados">
                       <td>{{empleado.identificacion}} </td>
-                      <td>{{empleado.nombre}} </td>
-                      <td>{{empleado.apellido1}} + ' ' +{{empleado.apellido2}} </td>
+                      <td>{{empleado.nombre}} {{empleado.nombre2}} </td>
+                      <td>{{empleado.apellido1}} {{empleado.apellido2}} </td>
                       <td>{{empleado.especialidad}} </td>
                       <td>{{empleado.sede}} </td>
                       <td>{{empleado.telefono}} </td>
@@ -32,9 +35,7 @@
                    
                   </tbody>
                 </table>
-                <div class="d-grid gap-2">
-                  <button class="btn btn-dark" type="button" routerLink="/crearEmpleados">Agregar</button>
-                </div>
+                
                        </div>
       </div>
     </div>
