@@ -1,1 +1,59 @@
-<p>listar-usuarios works!</p>
+<div clas="container mt-4">
+    <div class="card text-center">
+      <div class="card-body">
+        <span class="h3">Listado de Usuarios</span>
+        <a
+          class="link-primary float-end"
+          type="button"
+          routerLink="/crearUsuarios"
+          ><i class="fas fa-user-plus"></i> Agregar</a
+        >
+        <h5 *ngIf="usuarios.length == 0" style="margin-top: 30px">
+          No hay datos para mostrar
+        </h5>
+        <table
+          *ngIf="usuarios.length > 0"
+          class="table table-bordered border-primary mt-5"
+        >
+          <thead>
+            <tr>
+              <th>Identificación</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Teléfono</th>
+              <th>Sede</th>
+              <th>Facultad</th>
+              <th>Proyecto Curricular</th>
+              <!--<th>Historia Clinica</th>-->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of usuarios">
+              <td>{{ usuario.identificacion }}</td>
+              <td>{{ usuario.nombre1 }} {{ usuario.nombre2 }}</td>
+              <td>{{ usuario.apellido1 }} {{ usuario.apellido2 }}</td>
+              <td>{{ usuario.telefono }}</td>
+              <td>{{ usuario.sede }}</td>
+              <td>{{ usuario.facultad }}</td>
+              <td>{{ usuario.proyectocurricular }}</td>
+             <!-- <td>{{ usuario.historiaclinica }}</td>-->
+              
+              <td>
+                <i
+                  class="fas fa-user-edit fa-lg text-info"
+                  [routerLink]="['/editarUsuarios', usuario.id]"
+                >
+                </i>
+                <i
+                  (click)="eliminarUsuario(usuario.id)"
+                  class="fas fa-user-minus fa-lg text-danger ms-3"
+                >
+                </i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
