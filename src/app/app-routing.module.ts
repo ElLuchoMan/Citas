@@ -12,7 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'listarUsuarios', pathMatch: 'full' },
+  { path: '', redirectTo: 'crearTipoCitas', pathMatch: 'full' },
   { path: 'listarEmpleados', component: ListarEmpleadosComponent },
   { path: 'crearEmpleados', component: CrearEmpleadosComponent },
   { path: 'editarEmpleados/:id', component: CrearEmpleadosComponent },
