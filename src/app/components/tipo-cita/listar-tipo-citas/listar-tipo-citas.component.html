@@ -1,1 +1,45 @@
-<p>listar-tipo-citas works!</p>
+<div clas="container mt-4">
+    <div class="card text-center">
+      <div class="card-body">
+        <span class="h3">Listado de Tipos de Cita</span>
+        <a
+          class="link-primary float-end"
+          type="button"
+          routerLink="/crearTipoCitas"
+          ><i class="fas fa-user-plus"></i> Agregar</a
+        >
+        <h5 *ngIf="tipocitas.length == 0" style="margin-top: 30px">
+          No hay datos para mostrar
+        </h5>
+        <table
+          *ngIf="tipocitas.length > 0"
+          class="table table-bordered border-primary mt-5"
+        >
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Facultad</th>
+              <th>Descripción</th>
+              <th>Acciones</th>
+             </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tipocita of tipocitas">
+              <td>{{tipocita.nombre}}</td>
+              <td>{{tipocita.facultad}}</td>
+              <td>{{tipocita.descripcion}}</td>
+  
+              <td>
+                <i
+                  class="fas fa-user-edit fa-lg text-info"
+                  [routerLink]="['/editarTipoCita', tipocita.id]"
+                >
+                </i>
+                            </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
