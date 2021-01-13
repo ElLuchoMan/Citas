@@ -15,10 +15,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment.prod';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
+import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { HomeComponent } from './components/home/home.component';
     ListarUsuariosComponent,
     NavbarComponent,
     HomeComponent,
+   
 
 
   ],
@@ -44,11 +47,19 @@ import { HomeComponent } from './components/home/home.component';
     AngularFirestoreModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatIconModule,
 
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
-})
+  })
 export class AppModule { }

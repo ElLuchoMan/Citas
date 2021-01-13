@@ -11,7 +11,61 @@
           </h3>
           <span *ngIf="submit && crearCita.invalid" class="badge rounded-pill bg-danger">*TODOS LOS CAMPOS SON
             OBLIGATORIOS*</span>
-           
+          <form class="mt-4 row g-3" [formGroup]="crearCita" (ngSubmit)="agregarCita()">
+            <div class="col-md-6 mt-2">
+              <label class="form-label">Paciente</label>
+              <select formControlName="nombre" class="form-select">
+                <option value="Bryan">Bryan</option>
+                <option value="Miguel">Miguel</option>
+                <option value="Jose">Jose</option>
+              </select>
+            </div>
+            <div class="col-md-6 mt-2">
+              <label class="form-label">Facultad</label>
+              <select formControlName="facultad" class="form-select">
+                <option value="Artes">Artes</option>
+                <option value="Cliencias y Educación">
+                  Ciencias y educación
+                </option>
+                <option value="Ingeniería">Ingeniería</option>
+                <option value="Medio Ambiente">Medio Ambiente</option>
+                <option value="Tecnológica">Tecnológica</option>
+              </select>
+            </div>
+            <div class="col-md-6 mt-2">
+              <label class="form-label">Fecha</label>
+              <input type="text" class="form-control form-control-sm" formControlName="fecha" />
+            </div>
+            <div class="col-md-6 mt-2">
+              <label class="form-label">Hora</label>
+              <input type="text" class="form-control form-control-sm" formControlName="hora" />
+            </div>
+            <div class="col-md-6 mt-2">
+              <label class="form-label">Especialista</label>
+              <select formControlName="especialista" class="form-select">
+                <option value="Andres">Andres</option>
+                <option value="Paola">Paola</option>
+                <option value="Pedro">Pedro</option>
+              </select>
+            </div>
+            <div class="col-md-6 mt-2">
+              <label class="form-label">Tipo Cita</label>
+              <select formControlName="tipocita" class="form-select">
+                <option value="Odontología">Odontología</option>
+                <option value="General">General</option>
+                <option value="Fisioterapia">Fisioterapia</option>
+              </select>
+            </div>
+
+
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
+              <button type="text" class="btn btn-primary" routerLink="/listarCitas">
+                Volver
+              </button>
+              <button type="submit" class="btn btn-primary">Agregar</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

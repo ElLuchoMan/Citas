@@ -9,23 +9,12 @@
               <span class="visually-hidden">Loading...</span>
             </div>
           </h3>
-          <span
-            *ngIf="submit && crearTipoCita.invalid"
-            class="badge rounded-pill bg-danger"
-            >*TODOS LOS CAMPOS SON OBLIGATORIOS*</span
-          >
-          <form
-            class="mt-4 row g-3"
-            [formGroup]="crearTipoCita"
-            (ngSubmit)="agregarTipoCita()"
-          >
+          <span *ngIf="submit && crearTipoCita.invalid" class="badge rounded-pill bg-danger">*TODOS LOS CAMPOS SON
+            OBLIGATORIOS*</span>
+          <form class="mt-4 row g-3" [formGroup]="crearTipoCita" (ngSubmit)="agregarTipoCita()">
             <div class="col-md-6 mt-2">
               <label class="form-label">Nombre</label>
-              <input
-                type="text"
-                class="form-control form-control-sm"
-                formControlName="nombre"
-              />
+              <input type="text" class="form-control form-control-sm" formControlName="nombre" />
             </div>
             <div class="col-md-6 mt-2">
               <label class="form-label">Facultad</label>
@@ -41,19 +30,11 @@
             </div>
             <div class="mb-3">
               <label class="form-label">Descripción</label>
-              <textarea
-                class="form-control"
-                formControlName="descripcion"
-                rows="3"
-              ></textarea>
+              <textarea class="form-control" formControlName="descripcion" rows="3"></textarea>
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
-              <button
-                type="text"
-                class="btn btn-primary"
-                routerLink="/listarTipoCitas"
-              >
+              <button type="text" class="btn btn-primary" routerLink="/listarTipoCitas">
                 Volver
               </button>
               <button type="submit" class="btn btn-primary">Agregar</button>

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CitasService } from 'src/app/services/citas.service';
 
+
 @Component({
   selector: 'app-crear-citas',
   templateUrl: './crear-citas.component.html',
@@ -23,9 +24,12 @@ export class CrearCitasComponent implements OnInit {
     private aRoute: ActivatedRoute) {
     this.crearCita = this.fb.group({
       nombre: ['', Validators.required],
+      fecha: ['', Validators.required],
+      hora:['', Validators.required],
       facultad: ['', Validators.required],
-      descripcion: ['', Validators.required]
-    })
+      tipocita: ['', Validators.required],
+      especialista: ['', Validators.required],
+     })
     this.id = this.aRoute.snapshot.paramMap.get('id');
   }
 
@@ -46,8 +50,11 @@ export class CrearCitasComponent implements OnInit {
   agregarCita() {
     const cita: any = {
       nombre: this.crearCita.value.nombre,
+      fecha: this.crearCita.value.fecha,
+      hora:this.crearCita.value.hora,
       facultad: this.crearCita.value.facultad,
-      descripcion: this.crearCita.value.descripcion,
+      tipocita: this.crearCita.value.tipocita,
+      especialista: this.crearCita.value.especialista,
       fechaCreacion: new Date()
     }
     this.loading = true;

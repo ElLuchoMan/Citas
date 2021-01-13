@@ -4,6 +4,7 @@ import { TipoCitaService } from '../../../services/tipo-cita.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-crear-tipo-citas',
   templateUrl: './crear-tipo-citas.component.html',
