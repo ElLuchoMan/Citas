@@ -1,1 +1,112 @@
-<p>crear-citas works!</p>
+<div class="container pt-4">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h3>
+              {{ titulo }}
+              <div *ngIf="loading" class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </h3>
+            <span
+              *ngIf="submit && agregarCita.invalid"
+              class="badge rounded-pill bg-danger"
+              >*TODOS LOS CAMPOS SON OBLIGATORIOS*</span
+            >
+            <form
+              class="mt-4"
+              [formGroup]="agregarCita"
+              (ngSubmit)="agregarEditarCita()"
+            >
+              <div class="row">
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Identificación"
+                    formControlName="identificacion"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Primer Nombre"
+                    formControlName="nombre1"
+                  />
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Segundo Nombre"
+                    formControlName="nombre2"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Primer Apellido"
+                    formControlName="apellido1"
+                  />
+                </div>
+              </div>
+  
+              <div class="row mt-2">
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Segundo Apellido"
+                    formControlName="apellido2"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Especialidad"
+                    formControlName="especialidad"
+                  />
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Sede"
+                    formControlName="sede"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="telefono"
+                    formControlName="telefono"
+                  />
+                </div>
+              </div>
+  
+              <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
+                <button
+                  type="text"
+                  class="btn btn-primary"
+                  routerLink="/listarCitas"
+                >
+                  Volver
+                </button>
+                <button type="submit" class="btn btn-primary">Agregar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

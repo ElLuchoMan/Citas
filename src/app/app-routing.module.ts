@@ -12,7 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'crearTipoCitas', pathMatch: 'full' },
+  { path: '', redirectTo: 'crearCitas', pathMatch: 'full' },
   { path: 'listarEmpleados', component: ListarEmpleadosComponent },
   { path: 'crearEmpleados', component: CrearEmpleadosComponent },
   { path: 'editarEmpleados/:id', component: CrearEmpleadosComponent },
@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'crearUsuarios', component: CrearUsuariosComponent },
   { path: 'editarUsuarios/:id', component: CrearUsuariosComponent },
   { path: 'home', component: HomeComponent },
-  { path: '**', redirectTo: 'listarUsuarios', pathMatch: 'full' }
+  { path: '**', redirectTo: 'crearCitas', pathMatch: 'full' }
 
 ];
 
