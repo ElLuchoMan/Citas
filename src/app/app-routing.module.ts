@@ -12,25 +12,25 @@ import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'listarUsuarios',pathMatch:'full'},
-  {path: 'listarEmpleados', component: ListarEmpleadosComponent},
-  {path: 'crearEmpleados', component: CrearEmpleadosComponent},
-  {path: 'editarEmpleados/:id', component: CrearEmpleadosComponent},
-  {path: 'listarCitas', component: ListarCitasComponent},
-  {path: 'crearCitas', component: CrearCitasComponent},
-  {path: 'listarTipoCitas', component: ListarTipoCitasComponent},
-  {path: 'crearTipoCitas', component: CrearTipoCitasComponent},
-  {path: 'editarTipoCitas/:id', component: CrearTipoCitasComponent},
-  {path: 'listarUsuarios', component: ListarUsuariosComponent},
-  {path: 'crearUsuarios', component: CrearUsuariosComponent},
-  {path: 'editarUsuarios/:id', component: CrearUsuariosComponent},
-  {path: 'home',component: HomeComponent},
-  {path:'**',redirectTo:'listarUsuarios',pathMatch:'full'}
+  { path: '', redirectTo: 'listarUsuarios', pathMatch: 'full' },
+  { path: 'listarEmpleados', component: ListarEmpleadosComponent },
+  { path: 'crearEmpleados', component: CrearEmpleadosComponent },
+  { path: 'editarEmpleados/:id', component: CrearEmpleadosComponent },
+  { path: 'listarCitas', component: ListarCitasComponent },
+  { path: 'crearCitas', component: CrearCitasComponent },
+  { path: 'listarTipoCitas', component: ListarTipoCitasComponent },
+  { path: 'crearTipoCitas', component: CrearTipoCitasComponent },
+  { path: 'editarTipoCitas/:id', component: CrearTipoCitasComponent },
+  { path: 'listarUsuarios', component: ListarUsuariosComponent },
+  { path: 'crearUsuarios', component: CrearUsuariosComponent },
+  { path: 'editarUsuarios/:id', component: CrearUsuariosComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '**', redirectTo: 'listarUsuarios', pathMatch: 'full' }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash:true})],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

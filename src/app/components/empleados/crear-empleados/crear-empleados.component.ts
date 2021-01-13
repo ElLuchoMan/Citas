@@ -11,12 +11,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./crear-empleados.component.css']
 })
 export class CrearEmpleadosComponent implements OnInit {
-crearEmpleado: FormGroup;
-submit =false;
-loading=false;
-id: string | null;
-titulo = 'Agregar Empelado'
-  constructor(private fb: FormBuilder, 
+  crearEmpleado: FormGroup;
+  submit = false;
+  loading = false;
+  id: string | null;
+  titulo = 'Agregar Empelado'
+  constructor(private fb: FormBuilder,
     private _empleadoservice: EmpleadoService,
     private router: Router,
     private toastr: ToastrService,
@@ -32,87 +32,84 @@ titulo = 'Agregar Empelado'
       telefono: ['', Validators.required],
 
     })
-    this.id=this.aRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
-   }
+    this.id = this.aRoute.snapshot.paramMap.get('id');
+  }
 
   ngOnInit(): void {
     this.editarEmpleado();
   }
-  agregarEditarEmpleado(){
-    console.log(this.crearEmpleado);
-    this.submit=true;
-    if(this.crearEmpleado.invalid){
-          return;
+  agregarEditarEmpleado() {
+    this.submit = true;
+    if (this.crearEmpleado.invalid) {
+      return;
     }
-    if(this.id === null){
+    if (this.id === null) {
       this.agregarEmpleado();
-    }else{
+    } else {
       this.editarEmpleados();
     }
- }
- editarEmpleados(){
-  const empleado: any = {
-    identificacion: this.crearEmpleado.value.identificacion,
-    nombre1: this.crearEmpleado.value.nombre1,
-    nombre2: this.crearEmpleado.value.nombre2,
-    apellido1: this.crearEmpleado.value.apellido1,
-    apellido2: this.crearEmpleado.value.apellido2,
-    especialidad: this.crearEmpleado.value.especialidad,
-    sede: this.crearEmpleado.value.sede,
-    telefono: this.crearEmpleado.value.telefono,
-    fechaActualizacion: new Date()
   }
-  this._empleadoservice.actualizarEmpleado(this.id,empleado).then(()=>{
-    this.loading=false;
- 
-  this.loading=true;
-  this.toastr.success('El empleado fue actualizado con exito','Empleado modificado');
-  this.router.navigate(['/listarEmpleados']);
-})
-}
- agregarEmpleado(){
-  const empleado: any = {
-    identificacion: this.crearEmpleado.value.identificacion,
-    nombre1: this.crearEmpleado.value.nombre1,
-    nombre2: this.crearEmpleado.value.nombre2,
-    apellido1: this.crearEmpleado.value.apellido1,
-    apellido2: this.crearEmpleado.value.apellido2,
-    especialidad: this.crearEmpleado.value.especialidad,
-    sede: this.crearEmpleado.value.sede,
-    telefono: this.crearEmpleado.value.telefono,
-    fechaCreacion: new Date(),
-    fechaActualizacion: new Date()
-  }
-  this.loading=true;
-  this._empleadoservice.agregarEmpleado(empleado).then(()=>{
-    this.toastr.success('El empleado fue registrado con exito','Empleado registrado');
-    this.loading=false;
-    this.router.navigate(['/listarEmpledos']);
-  }).catch(error =>{
-    console.log(error);
-    this.toastr.error('No sé qué pasó xd','Error');
-    this.loading=false;
-  })
- }
- editarEmpleado(){
-  if( this.id != null){
-    this.titulo="Editar Empelado";
-    this.loading = true;
-    this._empleadoservice.getEmpleado(this.id).subscribe(data=>{
-      this.loading=false;
-        this.crearEmpleado.setValue({
-        identificacion: data.payload.data()['identificacion'],
-        nombre1: data.payload.data()['nombre1'],
-        nombre2: data.payload.data()['nombre2'],
-        apellido1: data.payload.data()['apellido1'],
-        apellido2: data.payload.data()['apellido2'],
-        especialidad: data.payload.data()['especialidad'],
-        sede: data.payload.data()['sede'],
-        telefono: data.payload.data()['telefono'],
-        
-      })
+  editarEmpleados() {
+    const empleado: any = {
+      identificacion: this.crearEmpleado.value.identificacion,
+      nombre1: this.crearEmpleado.value.nombre1,
+      nombre2: this.crearEmpleado.value.nombre2,
+      apellido1: this.crearEmpleado.value.apellido1,
+      apellido2: this.crearEmpleado.value.apellido2,
+      especialidad: this.crearEmpleado.value.especialidad,
+      sede: this.crearEmpleado.value.sede,
+      telefono: this.crearEmpleado.value.telefono,
+      fechaActualizacion: new Date()
+    }
+    this._empleadoservice.actualizarEmpleado(this.id, empleado).then(() => {
+      this.loading = false;
+
+      this.loading = true;
+      this.toastr.success('El empleado fue actualizado con exito', 'Empleado modificado');
+      this.router.navigate(['/listarEmpleados']);
     })
   }
- }
+  agregarEmpleado() {
+    const empleado: any = {
+      identificacion: this.crearEmpleado.value.identificacion,
+      nombre1: this.crearEmpleado.value.nombre1,
+      nombre2: this.crearEmpleado.value.nombre2,
+      apellido1: this.crearEmpleado.value.apellido1,
+      apellido2: this.crearEmpleado.value.apellido2,
+      especialidad: this.crearEmpleado.value.especialidad,
+      sede: this.crearEmpleado.value.sede,
+      telefono: this.crearEmpleado.value.telefono,
+      fechaCreacion: new Date(),
+      fechaActualizacion: new Date()
+    }
+    this.loading = true;
+    this._empleadoservice.agregarEmpleado(empleado).then(() => {
+      this.toastr.success('El empleado fue registrado con exito', 'Empleado registrado');
+      this.loading = false;
+      this.router.navigate(['/listarEmpledos']);
+    }).catch(error => {
+      this.toastr.error('No sé qué pasó xd', 'Error');
+      this.loading = false;
+    })
+  }
+  editarEmpleado() {
+    if (this.id != null) {
+      this.titulo = "Editar Empelado";
+      this.loading = true;
+      this._empleadoservice.getEmpleado(this.id).subscribe(data => {
+        this.loading = false;
+        this.crearEmpleado.setValue({
+          identificacion: data.payload.data()['identificacion'],
+          nombre1: data.payload.data()['nombre1'],
+          nombre2: data.payload.data()['nombre2'],
+          apellido1: data.payload.data()['apellido1'],
+          apellido2: data.payload.data()['apellido2'],
+          especialidad: data.payload.data()['especialidad'],
+          sede: data.payload.data()['sede'],
+          telefono: data.payload.data()['telefono'],
+
+        })
+      })
+    }
+  }
 }

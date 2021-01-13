@@ -8,33 +8,30 @@ import { EmpleadoService } from 'src/app/services/empleados.service';
   styleUrls: ['./listar-empleados.component.css']
 })
 export class ListarEmpleadosComponent implements OnInit {
-  empleados: any[]=[];
+  empleados: any[] = [];
 
-  constructor(private _empleadoService : EmpleadoService, private toastr: ToastrService) {
-       }
+  constructor(private _empleadoService: EmpleadoService, private toastr: ToastrService) {
+  }
 
   ngOnInit() {
     this.getEmpleados();
   }
-  getEmpleados(){
-  this._empleadoService.getEmpleados().subscribe(data=>{
-   data.forEach((element: any) => {
+  getEmpleados() {
+    this._empleadoService.getEmpleados().subscribe(data => {
+      data.forEach((element: any) => {
         this.empleados.push({
-       id: element.payload.doc.id,
-       ...element.payload.doc.data()
-     })
-   });
-   console.log(this.empleados);
-  })
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+        })
+      });
+    })
   }
-  eliminarEmpleado(id:string){
-    this._empleadoService.eliminarEmpleados(id).then(()=>{
-      console.log('Empleado eliminado');
-      this.toastr.error('Empleado eliminado','El empleado se eliminó con éxito', {positionClass:"toast-bottom-right"});
-      
-    }).catch(error =>{
-      console.log(error);
-      this.toastr.error('Error','No sé qué pasó xd', {positionClass:"toast-bottom-right"});
+  eliminarEmpleado(id: string) {
+    this._empleadoService.eliminarEmpleados(id).then(() => {
+      this.toastr.error('Empleado eliminado', 'El empleado se eliminó con éxito', { positionClass: "toast-bottom-right" });
+
+    }).catch(error => {
+      this.toastr.error('Error', 'No sé qué pasó xd', { positionClass: "toast-bottom-right" });
     })
   }
 

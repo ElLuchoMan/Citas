@@ -34,8 +34,8 @@ import { HomeComponent } from './components/home/home.component';
     ListarUsuariosComponent,
     NavbarComponent,
     HomeComponent,
-    
-   
+
+
   ],
   imports: [
     BrowserModule,
@@ -44,7 +44,7 @@ import { HomeComponent } from './components/home/home.component';
     AngularFirestoreModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule 
+    BrowserAnimationsModule
 
   ],
   providers: [],
