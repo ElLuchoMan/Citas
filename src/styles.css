@@ -1,14 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~ngx-toastr/toastr";
+:root {
+  --azul-claro2: #0099CC;
+  --azul-claro: #33b5e5;
+  --azul-profundo: #2d4d69;
+  --azul-profundo2: #314251;
+  --gris-claro: #b9bfc4;
+  --gris-oscuro: #838787;
+}
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 body {
   margin: 0;
   max-width: 100vw;
@@ -17,29 +17,9 @@ body {
 
 mat-card,
 mat-tab-group {
-  max-width: 100vw;
+  max-width: 20vw;
+  
 }
-
-mat-sidenav-container,
-mat-sidenav-content,
-mat-sidenav {
-  height: 200vh;
-}
-
-mat-sidenav.gt-sm {
-  width: 50vw;
-}
-mat-sidenav.lt-sm {
-  width: 80vw;
-}
-
-app-toolbar {
-  position: fixed;
-  top: 50;
-  width: 100%;
-  z-index: 2;
-}
-
 tr.mat-row:hover {
   background-color: #eee;
 }
@@ -71,12 +51,13 @@ div.invalid-form {
   }
 }
 .card-button {
-  padding: 8px 25px !important;
+  padding: 8px 50px !important;
   background-color: var(--azul-claro);
   color: #fff;
   font-weight: 180;
   font-size: 1.2rem;
   border: 1px solid var(--azul-claro);
+ 
 }
 
 .card-button:hover {
@@ -84,7 +65,3 @@ div.invalid-form {
   font-weight: 400;
   color:#fff;
 }
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

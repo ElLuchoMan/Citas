@@ -1,1 +1,26 @@
-<p>home works!</p>
+
+<div gdAreas="header | content" gdGap="1em" gdRows="auto auto auto">
+
+    <header class="home-header mx-1 mt-3" gdArea="header" fxLayoutAlign="center center">
+      <h1>Bienvenidos <br/> esto es una prueba</h1>
+    </header>
+  
+    <section class="m-1" gdArea="content">
+        <div class="row" fxLayoutAlign="space-evenly start">
+            <div class="col-sm-3" *ngFor="let cards of cards">
+              
+              <mat-card class="mt-2" fxFlex="23" fxFlex.lt-sm="100">
+                <mat-card-header>
+                    <mat-icon mat-card-avatar>{{cards.avatar}}</mat-icon>
+                    <mat-card-title >{{cards.title}}</mat-card-title>
+                    </mat-card-header>
+                    <img class="home-img" mat-card-image [src]="cards.img" alt="Photo" />
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
+                        <button class="btn btn-primary" [routerLink]="[cards.urlTo]">{{cards.button}}</button>
+                    </div>
+              </mat-card>
+            </div>
+        </div>
+        </section>
+  </div>
+ 
