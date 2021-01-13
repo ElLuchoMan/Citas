@@ -102,7 +102,7 @@ titulo = 'Agregar Empelado'
     this._empleadoservice.getEmpleado(this.id).subscribe(data=>{
       this.loading=false;
         this.crearEmpleado.setValue({
-        documento: data.payload.data()['documento'],
+        identificacion: data.payload.data()['identificacion'],
         nombre1: data.payload.data()['nombre1'],
         nombre2: data.payload.data()['nombre2'],
         apellido1: data.payload.data()['apellido1'],
