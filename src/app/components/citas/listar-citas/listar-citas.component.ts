@@ -10,7 +10,6 @@ import { CitasService } from 'src/app/services/citas.service';
   styleUrls: ['./listar-citas.component.css']
 })
 export class ListarCitasComponent implements OnInit {
-
   citas: any[]=[];
   displayedColumns = ['nombre', 'fecha','hora','facultad','tipocita', 'especialista'];
   datasource: any[]=[];

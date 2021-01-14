@@ -11,7 +11,9 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class ListarUsuariosComponent implements OnInit {
   usuarios: any[] = [];
+  datasource: any[]=[];
   cargando = true;
+  displayedColumns = ['nombre', 'fecha','hora','facultad','tipocita', 'especialista'];
   constructor(public _usuarioService: UsuariosService, private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -20,6 +22,7 @@ export class ListarUsuariosComponent implements OnInit {
   getUsuarios() {
     this._usuarioService.getUsuarios().subscribe(data => {
       this.usuarios=[];
+      this.datasource = this.usuarios;
       data.forEach((element: any) => {
         this.usuarios.push({
           id: element.payload.doc.id,

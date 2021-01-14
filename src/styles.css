@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~ngx-toastr/toastr";
+@use "@material/fab";
+
+@include fab.core-styles;
 :root {
   --azul-claro2: #0099cc;
   --azul-claro: #33b5e5;
