@@ -11,9 +11,10 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class ListarUsuariosComponent implements OnInit {
   usuarios: any[] = [];
+  displayedColumns = ['identificacion', 'nombre','apellidos','telefono','sede', 'facultad','proyectocurricular','acciones'];
   datasource: any[]=[];
   cargando = true;
-  displayedColumns = ['nombre', 'fecha','hora','facultad','tipocita', 'especialista'];
+  
   constructor(public _usuarioService: UsuariosService, private toastr: ToastrService) { }
 
   ngOnInit() {

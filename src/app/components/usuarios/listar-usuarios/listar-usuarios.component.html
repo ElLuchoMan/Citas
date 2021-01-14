@@ -1,53 +1,63 @@
-<div clas="container mt-4">
-  <div class="card text-center">
-    <div class="card-body">
-      <span class="h3">Listado de Usuarios</span>
-      <a class="link-primary float-end" type="button" routerLink="/crearUsuarios"><i class="fas fa-user-plus"></i>
-        Agregar</a>
-      <h5 *ngIf="usuarios.length == 0" style="margin-top: 30px">
-        <h2>Cargando</h2>
-        <div class="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <p> Espere por favor</p>
-      </h5>
-      <table *ngIf="usuarios.length > 0" class="table table-bordered border-primary mt-5">
-        <thead>
-          <tr>
-            <th>Identificación</th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Teléfono</th>
-            <th>Sede</th>
-            <th>Facultad</th>
-            <th>Proyecto Curricular</th>
-            <th>Acciones</th>
-            <!--<th>Historia Clinica</th>-->
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let usuario of usuarios">
-            <td>{{ usuario.identificacion }}</td>
-            <td>{{ usuario.nombre1 }} {{ usuario.nombre2 }}</td>
-            <td>{{ usuario.apellido1 }} {{ usuario.apellido2 }}</td>
-            <td>{{ usuario.telefono }}</td>
-            <td>{{ usuario.sede }}</td>
-            <td>{{ usuario.facultad }}</td>
-            <td>{{ usuario.proyectocurricular }}</td>
-            <!-- <td>{{ usuario.historiaclinica }}</td>-->
-
-            <td>
-              <i class="fas fa-user-edit fa-lg text-info" [routerLink]="['/editarUsuarios', usuario.id]">
-              </i>
-              <i (click)="eliminarUsuario(usuario.id)" class="fas fa-user-minus fa-lg text-danger ms-3">
-              </i>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <button type="text" class="btn btn-primary" routerLink="/home">
-        Volver
-      </button>
-    </div>
+<div class="card text-center">
+  <span class="h3">Listado de Usuarios</span>
+           <h5 *ngIf="usuarios.length == 0" style="margin-top: 30px">
+          <h2>Cargando</h2>
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p> Espere por favor</p>
+        </h5>
+      
+  
+  <div *ngIf="usuarios.length > 0" ><button class="m-auto" mat-button routerLink="/crearUsuarios" [ngStyle]="{color: 'var(--azul-claro)'}">
+    <mat-icon>add</mat-icon> Agregar Usuario
+  </button>
+  <button class="m-auto" mat-button routerLink="/home" [ngStyle]="{color: 'var(--azul-claro)'}">
+    <mat-icon>keyboard_backspace</mat-icon> Volver
+  </button>
   </div>
-</div>
+  </div>
+  <table *ngIf="usuarios.length > 0"  mat-table [dataSource]="datasource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="identificacion">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Identificación
+    </th>
+    <td mat-cell *matCellDef="let usuario">{{ usuario.identificacion}}</td>
+  </ng-container>
+  <ng-container matColumnDef="nombre">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Nombre
+    </th>
+    <td mat-cell *matCellDef="let usuario"> {{usuario.nombre1}} {{usuario.nombre2}} </td>
+  </ng-container>
+  <ng-container matColumnDef="apellidos">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Apellidos
+    </th>
+    <td mat-cell *matCellDef="let usuario">
+      {{usuario.apellido1}} {{usuario.apellido2}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="telefono">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Teléfono
+    </th>
+    <td mat-cell *matCellDef="let usuario">
+      {{usuario.telefono}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="sede">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Sede
+    </th>
+    <td mat-cell *matCellDef="let usuario"> {{usuario.sede}} </td>
+  </ng-container>
+ 
+
+  <!-- elementos necesarios para el mat-table de angular material-->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+           
+       

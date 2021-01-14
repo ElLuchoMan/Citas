@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
 import { CitasService } from 'src/app/services/citas.service';
@@ -11,8 +11,9 @@ import { CitasService } from 'src/app/services/citas.service';
 })
 export class ListarCitasComponent implements OnInit {
   citas: any[]=[];
-  displayedColumns = ['nombre', 'fecha','hora','facultad','tipocita', 'especialista'];
+  displayedColumns = [   'nombre', 'fecha','hora','facultad','tipocita', 'especialista'];
   datasource: any[]=[];
+  cargando = true;
  
   constructor(private _CitasService: CitasService,
     private toastr: ToastrService) { }
