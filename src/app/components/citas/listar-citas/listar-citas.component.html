@@ -25,7 +25,7 @@
         <tbody>
           <tr *ngFor="let cita of citas">
             <td>{{ cita.nombre }}</td>
-            <td>{{cita.fecha}}</td>
+            <td>{{cita.fecha*1000  | date: 'dd/MM' }}</td>
             <td>{{cita.hora}}</td>
             <td>{{ cita.facultad }}</td>
             <td>{{cita.tipocita}}</td>

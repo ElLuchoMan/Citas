@@ -9,16 +9,16 @@ import { CitasService } from 'src/app/services/citas.service';
 })
 export class ListarCitasComponent implements OnInit {
 
-  citas: any[] = [];
+  citas: any[]=[];
   constructor(private _CitasService: CitasService,
     private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getTipoCitas();
   }
-  getTipoCitas() {
-    this._CitasService.getCitas().subscribe(data => {
-      data.forEach((element: any) => {
+  getTipoCitas(){
+    this._CitasService.getCitas().subscribe(data=>{
+      data.forEach((element:any)=>{
         this.citas.push({
           id: element.payload.doc.id,
           ...element.payload.doc.data()
@@ -26,9 +26,9 @@ export class ListarCitasComponent implements OnInit {
       });
     })
   }
-  eliminarTipoCita(id: string) {
-    this._CitasService.eliminarCitas(id).then(() => {
-      this.toastr.error('Tipo Cita eliminado con éxito', 'Tipo cita eliminado');
+  eliminarTipoCita(id: string){
+    this._CitasService.eliminarCitas(id).then(()=>{
+      this.toastr.error('Tipo Cita eliminado con éxito','Tipo cita eliminado');
     })
   }
 
