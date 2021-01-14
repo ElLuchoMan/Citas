@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuariosService {
-
   constructor(private firestore: AngularFirestore) { }
   agregarUsuario(usuario: any): Promise<any> {
     return this.firestore.collection('usuarios').add(usuario);

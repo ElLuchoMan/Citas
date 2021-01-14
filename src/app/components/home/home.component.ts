@@ -19,14 +19,14 @@ export class HomeComponent implements OnInit {
       avatar: 'people',
       title: 'Usuarios',
       //subtitle: 'Crea los usuarios',
-     img: 'https://i.imgur.com/xshty5M.jpg',
+      img: 'https://i.imgur.com/xshty5M.jpg',
       button: 'Usuarios',
       urlTo: '/listarUsuarios',
     },
     {
       avatar: 'assignment_ind',
       title: 'Especialistas',
-     // subtitle: 'Modifica Especialistas',
+      // subtitle: 'Modifica Especialistas',
       img: 'https://i.imgur.com/pEkp0EU.jpg',
       button: 'Especialistas',
       urlTo: '/listarEmpleados',
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

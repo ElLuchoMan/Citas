@@ -36,7 +36,7 @@ import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
     ListarUsuariosComponent,
     NavbarComponent,
     HomeComponent,
-   
+
 
 
   ],
@@ -62,5 +62,5 @@ import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  })
+})
 export class AppModule { }

@@ -9,7 +9,7 @@ import { CitasService } from 'src/app/services/citas.service';
   selector: 'app-crear-citas',
   templateUrl: './crear-citas.component.html',
   styleUrls: ['./crear-citas.component.css']
-  })
+})
 export class CrearCitasComponent implements OnInit {
   crearCita: FormGroup;
   submit = false;
@@ -25,11 +25,11 @@ export class CrearCitasComponent implements OnInit {
     this.crearCita = this.fb.group({
       nombre: ['', Validators.required],
       fecha: ['', Validators.required],
-      hora:['', Validators.required],
+      hora: ['', Validators.required],
       facultad: ['', Validators.required],
       tipocita: ['', Validators.required],
       especialista: ['', Validators.required],
-     })
+    })
     this.id = this.aRoute.snapshot.paramMap.get('id');
   }
 
@@ -51,7 +51,7 @@ export class CrearCitasComponent implements OnInit {
     const cita: any = {
       nombre: this.crearCita.value.nombre,
       fecha: this.crearCita.value.fecha,
-      hora:this.crearCita.value.hora,
+      hora: this.crearCita.value.hora,
       facultad: this.crearCita.value.facultad,
       tipocita: this.crearCita.value.tipocita,
       especialista: this.crearCita.value.especialista,

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { resolve } from 'path';
 import { UsuariosService } from 'src/app/services/usuarios.service';
+
+
 
 @Component({
   selector: 'app-listar-usuarios',
@@ -9,7 +12,8 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class ListarUsuariosComponent implements OnInit {
   usuarios: any[] = [];
-  constructor(private _usuarioService: UsuariosService, private toastr: ToastrService) { }
+  cargando = true;
+  constructor(public _usuarioService: UsuariosService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getUsuarios();
@@ -17,12 +21,20 @@ export class ListarUsuariosComponent implements OnInit {
   getUsuarios() {
     this._usuarioService.getUsuarios().subscribe(data => {
       data.forEach((element: any) => {
+
         this.usuarios.push({
           id: element.payload.doc.id,
           ...element.payload.doc.data()
+
         })
       });
+
     })
+    setTimeout(() => {
+      this.cargando = false;
+    }, 2000);
+
+    resolve();
   }
   eliminarUsuario(id: string) {
     this._usuarioService.eliminarUsuarios(id).then(() => {

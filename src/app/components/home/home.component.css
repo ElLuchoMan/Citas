@@ -1,52 +1,51 @@
 .home-header {
-    min-height: 20vh;
-    max-height: 20vh;
-    background-image: url("https://i.imgur.com/K8DDs9i.jpg");
-    background-attachment: fixed;
-    background-position: 50% 25%;
-    background-size: cover;
-    filter: grayscale(0.35);
-    -webkit-filter: grayscale(0.35);
-  }
-  
-  .home-header h1 {
-    background-color: (0, 0, 0, 0.4);
-    color: #fff;
-    text-shadow: 2.5px 2px 0.5px var(--gris-oscuro);
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 250;
-    letter-spacing: 0;
-    line-height: normal;
-  }
-  
-  .home-img {
-    height: 40vh;
-  }
-  
-  .home-img:hover {
-    filter: grayscale(0.7);
-    -webkit-filter: grayscale(0.7);
-  }
-  
-  .mat-card-avatar {
-    font-size: 2rem;
-    vertical-align: center;
-    text-align: center;
-    color: var(--azul-claro);
-  }
-  
-  .card-button {
-    padding: 8px 25px !important;
-    background-color: var(--azul-claro);
-    color: #fff;
-    font-weight: 180;
-    font-size: 1.2rem;
-    border: 1px solid var(--azul-claro);
-  }
-  
-  .card-button:hover {
-    background-color: var(--azul-claro2);
-    font-weight: 400;
-    color:#fff;
-  }
+  min-height: 20vh;
+  max-height: 20vh;
+  background-image: url("https://blog.utp.edu.co/boletinadrenalinapcdyr/files/2015/09/wallpaper-negro.jpg");
+  background-attachment: fixed;
+  background-position: 50% 25%;
+  background-size: cover;
+  filter: grayscale(0.35);
+  -webkit-filter: grayscale(0.35);
+}
+
+.home-header h1 {
+  background-color: (0, 0, 0, 0.4);
+  color: #fff;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 250;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.home-img {
+  height: 40vh;
+}
+
+.home-img:hover {
+  filter: grayscale(0.7);
+  -webkit-filter: grayscale(0.7);
+}
+
+.mat-card-avatar {
+  font-size: 2rem;
+  vertical-align: center;
+  text-align: center;
+  color: var(--azul-claro);
+}
+
+.card-button {
+  padding: 8px 25px !important;
+  background-color: var(--azul-claro);
+  color: #fff;
+  font-weight: 180;
+  font-size: 1.2rem;
+  border: 1px solid var(--azul-claro);
+}
+
+.card-button:hover {
+  background-color: var(--azul-claro2);
+  font-weight: 400;
+  color: #fff;
+}

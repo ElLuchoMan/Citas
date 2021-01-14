@@ -9,17 +9,10 @@
               <span class="visually-hidden">Loading...</span>
             </div>
           </h3>
-          <span
-            *ngIf="submit && crearUsuario.invalid"
-            class="badge rounded-pill bg-danger"
-            >*TODOS LOS CAMPOS SON OBLIGATORIOS*</span
-          >
-          <form
-            class="mt-4 row g-3"
-            [formGroup]="crearUsuario"
-            (ngSubmit)="agregarEditarUsuario()"
-          >
-         
+          <span *ngIf="submit && crearUsuario.invalid" class="badge rounded-pill bg-danger">*TODOS LOS CAMPOS SON
+            OBLIGATORIOS*</span>
+          <form class="mt-4 row g-3" [formGroup]="crearUsuario" (ngSubmit)="agregarEditarUsuario()">
+
             <div class="col-md-6 mt-2">
               <label class="form-label">Identificación</label>
               <input type="text" class="form-control form-control-sm" formControlName="identificacion">
@@ -28,7 +21,7 @@
               <label class="form-label">Teléfono</label>
               <input type="text" class="form-control form-control-sm" formControlName="telefono">
             </div>
-            
+
             <div class="col-md-6 mt-2">
               <label class="form-label">Primer Nombre</label>
               <input type="text" class="form-control form-control-sm" formControlName="nombre1">
@@ -45,47 +38,43 @@
               <label class="form-label">Segundo Apellido</label>
               <input type="text" class="form-control form-control-sm" formControlName="apellido2">
             </div>
-            
-            <div class="col-md-6 mt-2" >
+
+            <div class="col-md-6 mt-2">
               <label class="form-label">Facultad</label>
               <select formControlName="facultad" class="form-select">
                 <option value="Artes">Artes</option>
                 <option value="Cliencias y Educación">Ciencias y educación</option>
-                <option value="Ingeniería" >Ingeniería</option>
+                <option value="Ingeniería">Ingeniería</option>
                 <option value="Medio Ambiente"> Medio Ambiente</option>
                 <option value="Tecnológica">Tecnológica</option>
               </select>
             </div>
-            <div class="col-md-6 mt-2" >
+            <div class="col-md-6 mt-2">
               <label class="form-label">Proyecto</label>
               <select formControlName="proyectocurricular" class="form-select">
                 <option value="Ingeniería de Sistemas">Ingeniería de Sistemas</option>
                 <option value="Ingeniería Catastral">Ingeniería Catastral</option>
-                <option value="Ingeniería Industrial" >Ingeniería Industrial</option>
+                <option value="Ingeniería Industrial">Ingeniería Industrial</option>
                 <option value="Ingeniería Eléctrica"> Ingeniería Eléctrica</option>
                 <option value="Ingeniería Electrónica">Ingeniería Electrónica</option>
               </select>
-            </div>    
+            </div>
             <div class="col-md-12 mt-2">
               <label class="form-label">Sede</label>
               <input type="text" class="form-control form-control-sm" formControlName="sede">
             </div>
-            
-              <!-- <label for="formFile" class="form-label">Historia Clinica</label>
+
+            <!-- <label for="formFile" class="form-label">Historia Clinica</label>
               <input
                 class="form-control"
                 type="file"
                 id="formFile"
                 formControlName="historiaclinica"
               />-->
-           
+
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
-              <button
-                type="text"
-                class="btn btn-primary"
-                routerLink="/listarUsuarios"
-              >
+              <button type="text" class="btn btn-primary" routerLink="/listarUsuarios">
                 Volver
               </button>
               <button type="submit" class="btn btn-primary">Agregar</button>

@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~ngx-toastr/toastr";
 :root {
-  --azul-claro2: #0099CC;
+  --azul-claro2: #0099cc;
   --azul-claro: #33b5e5;
   --azul-profundo: #2d4d69;
   --azul-profundo2: #314251;
@@ -18,7 +18,6 @@ body {
 mat-card,
 mat-tab-group {
   max-width: 20vw;
-  
 }
 tr.mat-row:hover {
   background-color: #eee;
@@ -57,11 +56,10 @@ div.invalid-form {
   font-weight: 180;
   font-size: 1.2rem;
   border: 1px solid var(--azul-claro);
- 
 }
 
 .card-button:hover {
   background-color: var(--azul-claro2);
   font-weight: 400;
-  color:#fff;
+  color: #fff;
 }

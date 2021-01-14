@@ -1,5 +1,4 @@
-
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 @include mat-core();
 $Citas-primary: mat-palette($mat-indigo);
 $Citas-accent: mat-palette($mat-pink, A200, A100, A400);
@@ -7,6 +6,6 @@ $Citas-warn: mat-palette($mat-red);
 $Citas-theme: mat-light-theme($Citas-primary, $Citas-accent, $Citas-warn);
 @include angular-material-theme($Citas-theme);
 
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 @include mat-core();
