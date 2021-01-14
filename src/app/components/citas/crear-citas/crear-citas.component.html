@@ -12,54 +12,72 @@
           <span *ngIf="submit && crearCita.invalid" class="badge rounded-pill bg-danger">*TODOS LOS CAMPOS SON
             OBLIGATORIOS*</span>
           <form class="mt-4 row g-3" [formGroup]="crearCita" (ngSubmit)="agregarCita()">
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Paciente</label>
-              <select formControlName="nombre" class="form-select">
-                <option value="Bryan">Bryan</option>
-                <option value="Miguel">Miguel</option>
-                <option value="Jose">Jose</option>
-              </select>
-            </div>
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Facultad</label>
-              <select formControlName="facultad" class="form-select">
-                <option value="Artes">Artes</option>
-                <option value="Cliencias y Educación">
-                  Ciencias y educación
-                </option>
-                <option value="Ingeniería">Ingeniería</option>
-                <option value="Medio Ambiente">Medio Ambiente</option>
-                <option value="Tecnológica">Tecnológica</option>
-              </select>
-            </div>
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Fecha</label>
-              <input type="text" class="form-control form-control-sm" formControlName="fecha" />
-            </div>
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Hora</label>
-              <input type="text" class="form-control form-control-sm" formControlName="hora" />
-            </div>
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Especialista</label>
-              <select formControlName="especialista" class="form-select">
-                <option value="Andres">Andres</option>
-                <option value="Paola">Paola</option>
-                <option value="Pedro">Pedro</option>
-              </select>
-            </div>
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Tipo Cita</label>
-              <select formControlName="tipocita" class="form-select">
-                <option value="Odontología">Odontología</option>
-                <option value="General">General</option>
-                <option value="Fisioterapia">Fisioterapia</option>
-              </select>
-            </div>
+            <div class="form-group" fxLayoutAlign="space-between" fxLayout="row wrap">
+              <mat-form-field appearance="outline" class="select-group">
+                  <mat-label>Paciente</mat-label>
+                  <mat-select formControlName="nombre">
+                      <mat-option [value]="usuario.nombre1 + usuario.apellido1" *ngFor="let usuario of usuarios">{{usuario.nombre1}} {{usuario.apellido1}}
+                      </mat-option>
+                  </mat-select>
+                  <mat-hint>Seleccione el tipo de cita</mat-hint>
+                  <mat-error>Campo obligatorio</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="select-group">
+                  <mat-label>Facultad</mat-label>
+                  <mat-select formControlName="facultad">
+                      <mat-option [value]="usuario.facultad" *ngFor="let usuario of usuarios">
+                          {{usuario.facultad}}
+                      </mat-option>
+                  </mat-select>
+                  <mat-hint>Seleccione la facultad</mat-hint>
+                  <mat-error>Campo obligatorio</mat-error>
+              </mat-form-field>
+          </div>
+          <div class="form-group" fxLayoutAlign="space-between" fxLayout="row wrap">
+            <mat-form-field appearance="outline" class="select-group">
+                <mat-label>Tipo de cita</mat-label>
+                <mat-select formControlName="tipocita">
+                    <mat-option [value]="tipocita.nombre" *ngFor="let tipocita of tipocitas">{{tipocita.nombre}}
+                    </mat-option>
+                </mat-select>
+                <mat-hint>Seleccione el tipo de cita</mat-hint>
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="select-group">
+                <mat-label>Especialista</mat-label>
+                <mat-select formControlName="especialista">
+                    <mat-option [value]="empleado.nombre1 + empleado.apellido1" *ngFor="let empleado of empleados">
+                        {{empleado.nombre1 + ' ' + empleado.apellido1}}
+                    </mat-option>
+                </mat-select>
+                <mat-hint>Seleccione el especialista</mat-hint>
+                <mat-error>Campo obligatorio</mat-error>
+            </mat-form-field>
+        </div>
 
-
-
-            <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
+          <div class="form-group" fxLayoutAlign="space-between" fxLayout="row wrap">
+            <mat-form-field appearance="outline">
+              <mat-label>Fecha de la cita</mat-label>
+              <input matInput formControlName="fecha"[matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-hint>Ingresa la fecha de la cita</mat-hint>
+             <mat-error>La fecha es obligatoria</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Hora cita</mat-label>
+              <input id="timePicker" matInput [ngxTimepicker]="hora" [format]="24" formControlName="hora"
+                  min="08:00 am" max="04:45 pm" [disableClick]="false"/>
+              <mat-icon class="toggle-picker" matSuffix (click)="hora.open()">schedule</mat-icon>
+              <ngx-material-timepicker [hoursOnly]="false" #hora [editableHintTmpl]="hint" #with5Gap [minutesGap]="15">
+                  
+              </ngx-material-timepicker>
+              <ng-template #hint>
+                  <span class="time-hint">Ingrese la hora en formato 24 horas</span>
+              </ng-template>
+          </mat-form-field>
+           </div>
+                       <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
               <button type="text" class="btn btn-primary" routerLink="/listarCitas">
                 Volver
               </button>

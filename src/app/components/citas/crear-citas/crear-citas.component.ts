@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CitasService } from 'src/app/services/citas.service';
+import { UsuariosService } from '../../../services/usuarios.service';
+import { EmpleadoService } from '../../../services/empleados.service';
+import { TipoCitaService } from '../../../services/tipo-cita.service';
 
 
 @Component({
@@ -11,6 +14,9 @@ import { CitasService } from 'src/app/services/citas.service';
   styleUrls: ['./crear-citas.component.css']
 })
 export class CrearCitasComponent implements OnInit {
+  usuarios: any[]=[];
+  empleados: any[]=[];
+  tipocitas: any[]=[];
   crearCita: FormGroup;
   submit = false;
   loading = false;
@@ -19,11 +25,14 @@ export class CrearCitasComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private _citaService: CitasService,
+    private _usuarioService: UsuariosService,
+    private _empleadoService: EmpleadoService,
+    private _tipoCitasService: TipoCitaService,
     private router: Router,
     private toastr: ToastrService,
     private aRoute: ActivatedRoute) {
     this.crearCita = this.fb.group({
-      nombre: ['', Validators.required],
+      nombre: [_usuarioService.getUsuario('nombre'), Validators.required],
       fecha: ['', Validators.required],
       hora: ['', Validators.required],
       facultad: ['', Validators.required],
@@ -33,9 +42,47 @@ export class CrearCitasComponent implements OnInit {
     this.id = this.aRoute.snapshot.paramMap.get('id');
   }
 
+
   ngOnInit(): void {
     this.editarCita();
+    this.getUsuarios();
+    this.getTipoCitas();
+    this.getEmpleados();
   }
+  private getUsuarios(){
+    this.usuarios =[];
+    this._usuarioService.getUsuarios().subscribe(data=>{
+      data.forEach((element:any)=>{
+          this.usuarios.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+
+        })
+      });
+     })
+    }
+    getEmpleados() {
+      this.empleados=[];
+      this._empleadoService.getEmpleados().subscribe(data => {
+        data.forEach((element: any) => {
+          this.empleados.push({
+            id: element.payload.doc.id,
+            ...element.payload.doc.data()
+          })
+        });
+      })
+    }
+    getTipoCitas() {
+      this.tipocitas=[];
+      this._tipoCitasService.getTipoCitas().subscribe(data => {
+        data.forEach((element: any) => {
+          this.tipocitas.push({
+            id: element.payload.doc.id,
+            ...element.payload.doc.data()
+          })
+        });
+      })
+    }
   agregarEditarCita() {
     this.submit = true;
     if (this.crearCita.invalid) {

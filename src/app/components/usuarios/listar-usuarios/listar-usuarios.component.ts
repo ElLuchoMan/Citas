@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { resolve } from 'path';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 
@@ -20,8 +19,8 @@ export class ListarUsuariosComponent implements OnInit {
   }
   getUsuarios() {
     this._usuarioService.getUsuarios().subscribe(data => {
+      this.usuarios=[];
       data.forEach((element: any) => {
-
         this.usuarios.push({
           id: element.payload.doc.id,
           ...element.payload.doc.data()
@@ -30,11 +29,6 @@ export class ListarUsuariosComponent implements OnInit {
       });
 
     })
-    setTimeout(() => {
-      this.cargando = false;
-    }, 2000);
-
-    resolve();
   }
   eliminarUsuario(id: string) {
     this._usuarioService.eliminarUsuarios(id).then(() => {

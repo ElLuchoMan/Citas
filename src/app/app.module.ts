@@ -19,8 +19,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatFormFieldControl, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
     ListarUsuariosComponent,
     NavbarComponent,
     HomeComponent,
+    
 
 
 
@@ -58,9 +61,14 @@ import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
+    NgxMaterialTimepickerModule,
+    
+    
+    
 
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
