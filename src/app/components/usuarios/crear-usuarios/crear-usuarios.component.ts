@@ -23,9 +23,9 @@ export class CrearUsuariosComponent implements OnInit {
     this.crearUsuario = this.fb.group({
       identificacion: ['', Validators.required],
       nombre1: ['', Validators.required],
-      nombre2: ['', Validators.required],
+      nombre2: [''],
       apellido1: ['', Validators.required],
-      apellido2: ['', Validators.required],
+      apellido2: [''],
       telefono: ['', Validators.required],
       facultad: ['', Validators.required],
       proyectocurricular: ['', Validators.required],

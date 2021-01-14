@@ -37,7 +37,7 @@ export class CrearCitasComponent implements OnInit {
       hora: ['', Validators.required],
       facultad: ['', Validators.required],
       tipocita: ['', Validators.required],
-      especialista: ['', Validators.required],
+      especialista: [' ', Validators.required],
     })
     this.id = this.aRoute.snapshot.paramMap.get('id');
   }

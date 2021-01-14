@@ -19,7 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
-import { MatButtonModule, MatCardModule, MatFormFieldControl, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatFormFieldControl, MatFormFieldModule, MatIconModule, MatInputModule, MatPaginatorModule, MatSelectModule, MatTableModule } from '@angular/material';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
@@ -62,6 +62,9 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     MatIconModule,
     MatCardModule,
     NgxMaterialTimepickerModule,
+    MatTableModule,
+    MatPaginatorModule,
+
     
     
     

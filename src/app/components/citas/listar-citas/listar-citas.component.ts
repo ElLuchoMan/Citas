@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { ToastrService } from 'ngx-toastr';
 import { CitasService } from 'src/app/services/citas.service';
+
 
 @Component({
   selector: 'app-listar-citas',
@@ -10,6 +12,9 @@ import { CitasService } from 'src/app/services/citas.service';
 export class ListarCitasComponent implements OnInit {
 
   citas: any[]=[];
+  displayedColumns = ['nombre', 'fecha','hora','facultad','tipocita', 'especialista'];
+  datasource: any[]=[];
+ 
   constructor(private _CitasService: CitasService,
     private toastr: ToastrService) { }
 
@@ -17,7 +22,10 @@ export class ListarCitasComponent implements OnInit {
     this.getTipoCitas();
   }
   getTipoCitas(){
+    
     this._CitasService.getCitas().subscribe(data=>{
+      this.citas =[];
+      this.datasource = this.citas;
       data.forEach((element:any)=>{
         this.citas.push({
           id: element.payload.doc.id,
@@ -31,5 +39,6 @@ export class ListarCitasComponent implements OnInit {
       this.toastr.error('Tipo Cita eliminado con éxito','Tipo cita eliminado');
     })
   }
+
 
 }

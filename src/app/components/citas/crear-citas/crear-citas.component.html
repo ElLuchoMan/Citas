@@ -16,7 +16,7 @@
               <mat-form-field appearance="outline" class="select-group">
                   <mat-label>Paciente</mat-label>
                   <mat-select formControlName="nombre">
-                      <mat-option [value]="usuario.nombre1 + usuario.apellido1" *ngFor="let usuario of usuarios">{{usuario.nombre1}} {{usuario.apellido1}}
+                      <mat-option [value]="usuario.nombre1 +' '+ usuario.apellido1" *ngFor="let usuario of usuarios">{{usuario.nombre1 +' '+usuario.apellido1}}
                       </mat-option>
                   </mat-select>
                   <mat-hint>Seleccione el tipo de cita</mat-hint>
@@ -46,7 +46,7 @@
             <mat-form-field appearance="outline" class="select-group">
                 <mat-label>Especialista</mat-label>
                 <mat-select formControlName="especialista">
-                    <mat-option [value]="empleado.nombre1 + empleado.apellido1" *ngFor="let empleado of empleados">
+                    <mat-option [value]="empleado.nombre1 +' '+ empleado.apellido1" *ngFor="let empleado of empleados">
                         {{empleado.nombre1 + ' ' + empleado.apellido1}}
                     </mat-option>
                 </mat-select>
