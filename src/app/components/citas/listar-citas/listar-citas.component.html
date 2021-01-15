@@ -7,8 +7,7 @@
         </div>
         <p> Espere por favor</p>
       </h5>
-    
-
+   
 <div *ngIf="citas.length > 0" ><button class="m-auto" mat-button routerLink="/crearCitas" [ngStyle]="{color: 'var(--azul-claro)'}">
   <mat-icon>add</mat-icon> Asignar nueva cita
 </button>
@@ -18,6 +17,9 @@
 </div>
 </div>
 	<table *ngIf="citas.length > 0"  mat-table [dataSource]="datasource" matSort class="mat-elevation-z8">
+    <caption style="display: none">
+      Citas 
+  </caption>
       <ng-container matColumnDef="nombre">
       <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
         Usuario

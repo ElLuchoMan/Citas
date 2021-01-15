@@ -18,6 +18,9 @@
   </div>
   </div>
   <table *ngIf="empleados.length > 0"  mat-table [dataSource]="datasource" matSort class="mat-elevation-z8">
+    <caption style="display: none">
+      Especialistas
+  </caption>
     <ng-container matColumnDef="identificacion">
     <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
       Identificación
