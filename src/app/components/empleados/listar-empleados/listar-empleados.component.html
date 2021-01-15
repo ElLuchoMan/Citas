@@ -1,48 +1,79 @@
-<div clas="container mt-4">
-  <div class="card text-center">
-    <div class="card-body">
-      <span class="h3">Listado de Especialistas</span>
-      <a class="link-primary float-end" type="button" routerLink="/crearEmpleados"><i class="fas fa-user-plus"></i>
-        Agregar</a>
-      <h5 *ngIf="empleados.length == 0" style="margin-top: 30px">
-        <h2>Cargando</h2>
+<div class="card text-center">
+  <span class="h3">Listado de Especialistas</span>
+           <h5 *ngIf="empleados.length == 0" style="margin-top: 30px">
+          <h2>Cargando</h2>
           <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
           <p> Espere por favor</p>
-      </h5>
-      <table *ngIf="empleados.length > 0" class="table table-bordered border-primary mt-5">
-        <thead>
-          <tr>
-            <th>Identificación</th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Especialidad</th>
-            <th>Sede</th>
-            <th>Teléfono</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let empleado of empleados">
-            <td>{{ empleado.identificacion }}</td>
-            <td>{{ empleado.nombre1 }} {{ empleado.nombre2 }}</td>
-            <td>{{ empleado.apellido1 }} {{ empleado.apellido2 }}</td>
-            <td>{{ empleado.especialidad }}</td>
-            <td>{{ empleado.sede }}</td>
-            <td>{{ empleado.telefono }}</td>
-            <td>
-              <i class="fas fa-user-edit fa-lg text-info" [routerLink]="['/editarEmpleados', empleado.id]">
-              </i>
-              <i (click)="eliminarEmpleado(empleado.id)" class="fas fa-user-minus fa-lg text-danger ms-3">
-              </i>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <button type="text" class="btn btn-primary" routerLink="/home">
-        Volver
-      </button>
-    </div>
+        </h5>
+      
+  
+  <div *ngIf="empleados.length > 0" ><button class="m-auto" mat-button routerLink="/crearEmpleados" [ngStyle]="{color: 'var(--azul-claro)'}">
+    <mat-icon>add</mat-icon> Agregar Especialista
+  </button>
+  <button class="m-auto" mat-button routerLink="/home" [ngStyle]="{color: 'var(--azul-claro)'}">
+    <mat-icon>keyboard_backspace</mat-icon> Volver
+  </button>
   </div>
-</div>
+  </div>
+  <table *ngIf="empleados.length > 0"  mat-table [dataSource]="datasource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="identificacion">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Identificación
+    </th>
+    <td mat-cell *matCellDef="let empleado">{{ empleado.identificacion}}</td>
+  </ng-container>
+  <ng-container matColumnDef="nombre">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Nombre
+    </th>
+    <td mat-cell *matCellDef="let empleado"> {{empleado.nombre1}} {{empleado.nombre2}} </td>
+  </ng-container>
+  <ng-container matColumnDef="apellidos">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Apellidos
+    </th>
+    <td mat-cell *matCellDef="let empleado">
+      {{empleado.apellido1}} {{empleado.apellido2}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="especialidad">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Especialidad
+    </th>
+    <td mat-cell *matCellDef="let empleado">
+      {{empleado.especialidad}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="sede">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Sede
+    </th>
+    <td mat-cell *matCellDef="let empleado"> {{empleado.sede}} </td>
+  </ng-container>
+  <ng-container matColumnDef="telefono">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Teléfono
+    </th>
+    <td mat-cell *matCellDef="let empleado"> {{empleado.telefono}} </td>
+  </ng-container>
+  <ng-container matColumnDef="acciones">
+    <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header>
+      Acciones
+      </th>
+    <td mat-cell *matCellDef="let empleado">
+      <i class="fas fa-user-edit fa-lg text-info" [routerLink]="['/editarEmpleados', empleado.id]">
+      </i>
+      <i (click)="eliminarEmpleado(empleado.id)" class="fas fa-user-minus fa-lg text-danger ms-3">
+      </i>
+  </td>
+  </ng-container>
+
+  <!-- elementos necesarios para el mat-table de angular material-->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+           
+       

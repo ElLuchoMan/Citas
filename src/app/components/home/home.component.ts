@@ -33,10 +33,10 @@ export class HomeComponent implements OnInit {
     },
     {
       avatar: 'next_week',
-      title: 'Tipos de Cita',
+      title: 'Especialidad',
       //subtitle: 'Modifica los tipos de cita',
       img: 'https://i.imgur.com/n7t3yxY.jpg',
-      button: 'Tipos de cita',
+      button: 'Especialidad',
       urlTo: '/listarTipoCitas',
     }
   ];

@@ -6,3 +6,6 @@ i {
   justify-content: center;
   min-height: 1vh;
 }
+table {
+  width: 100%;
+}

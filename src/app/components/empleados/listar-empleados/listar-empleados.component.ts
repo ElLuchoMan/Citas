@@ -9,6 +9,8 @@ import { EmpleadoService } from 'src/app/services/empleados.service';
 })
 export class ListarEmpleadosComponent implements OnInit {
   empleados: any[] = [];
+  datasource: any[]=[];
+  displayedColumns = ['identificacion', 'nombre','apellidos','especialidad','sede', 'telefono','acciones'];
 
   constructor(private _empleadoService: EmpleadoService, private toastr: ToastrService) {
   }
@@ -18,6 +20,8 @@ export class ListarEmpleadosComponent implements OnInit {
   }
   getEmpleados() {
     this._empleadoService.getEmpleados().subscribe(data => {
+      this.empleados=[];
+      this.datasource=this.empleados;
       data.forEach((element: any) => {
         this.empleados.push({
           id: element.payload.doc.id,

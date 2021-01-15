@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListarTipoCitasComponent implements OnInit {
   tipocitas: any[] = [];
+  datasource: any[]=[];
+  displayedColumns = ['nombre','facultad','descripcion'];
   constructor(private _tipoCitasService: TipoCitaService,
     private toastr: ToastrService) { }
 
@@ -17,6 +19,8 @@ export class ListarTipoCitasComponent implements OnInit {
   }
   getTipoCitas() {
     this._tipoCitasService.getTipoCitas().subscribe(data => {
+      this.tipocitas=[];
+      this.datasource= this.tipocitas;
       data.forEach((element: any) => {
         this.tipocitas.push({
           id: element.payload.doc.id,
