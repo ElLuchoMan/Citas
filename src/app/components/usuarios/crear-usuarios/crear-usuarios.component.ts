@@ -13,6 +13,7 @@ export class CrearUsuariosComponent implements OnInit {
   crearUsuario: FormGroup;
   submit = false;
   loading = false;
+
   id: string | null;
   titulo = 'Agregar Usuario';
   constructor(private fb: FormBuilder,
