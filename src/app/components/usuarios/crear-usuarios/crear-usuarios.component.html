@@ -11,66 +11,84 @@
           </h3>
           <span *ngIf="submit && crearUsuario.invalid" class="badge rounded-pill bg-danger">*TODOS LOS CAMPOS SON
             OBLIGATORIOS*</span>
-          <form class="mt-4 row g-3" [formGroup]="crearUsuario" (ngSubmit)="agregarEditarUsuario()">
+          <form  autocomplete="off" class="mt-4 row g-3" [formGroup]="crearUsuario" (ngSubmit)="agregarEditarUsuario()">
+            <div class="form-group" fxLayoutAlign="space-between" fxLayout="row wrap">
+            <mat-form-field appearance="outline">
+              <mat-label>Número de Identificación</mat-label>
+              <input matInput formControlName="identificacion" />
+              <mat-hint>Ingrese el número de documento, actual:{{crearUsuario.controls.identificacion.value.length}}</mat-hint>
+              <mat-error>La identificación es obligatoria
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Teléfono contacto</mat-label>
+            <input matInput formControlName="telefono" />
+            <mat-hint>Ingrese el teléfono (fijo o celular), actual:{{crearUsuario.controls.telefono.value.length}}</mat-hint>
+            <mat-error>El teléfono es obligatorio </mat-error>
+        </mat-form-field>
+            </div>
+     
+            <div class="form-group mt-2" fxLayoutAlign="space-between" fxLayout="row wrap">
+              <mat-form-field appearance="outline">
+                  <mat-label>Primer Nombre</mat-label>
+                  <input matInput formControlName="nombre1" />
+                  <mat-hint>Ingrese el primer nombre</mat-hint>
+                  <mat-error>El nombre es obligatorio</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                  <mat-label>Segundo Nombre</mat-label>
+                  <input matInput  formControlName="nombre2" />
+                  <mat-hint>Ingrese el segundo nombre</mat-hint>
+                  </mat-form-field>
+          </div>
+          <div class="form-group mt-2" fxLayoutAlign="space-between" fxLayout="row wrap">
+            <mat-form-field appearance="outline">
+                <mat-label>Primer Apellido</mat-label>
+                <input matInput formControlName="apellido1" />
+                <mat-hint>Ingrese el primer apellido</mat-hint>
+                <mat-error>El apellido es obligatorio</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Segundo Apellido</mat-label>
+                <input matInput  formControlName="apellido2" />
+                <mat-hint>Ingrese el segundo apellido</mat-hint>
+                </mat-form-field>
+        </div>
+        <div class="form-group mt-2" fxLayoutAlign="space-between" fxLayout="row wrap">
+        <mat-form-field appearance="outline" class="select-group">
+          <mat-label>Facultad</mat-label>
+          <mat-select formControlName="facultad">
+              <mat-option value="Ingeniería">
+                  Ingeniería
+              </mat-option>
+          </mat-select>
+          <mat-hint>Seleccione la facultad</mat-hint>
+          <mat-error>Campo obligatorio</mat-error>
+      </mat-form-field>
+         <mat-form-field appearance="outline" class="select-group">
+          <mat-label>Facultad</mat-label>
+          <mat-select formControlName="proyectocurricular">
+            <mat-option value="Ingeniería de Sistemas">Ingeniería de Sistemas</mat-option>
+            <mat-option value="Ingeniería Industrital">Ingeniería Industrital</mat-option>
+            <mat-option value="Ingeniería Catastral">Ingeniería Catastral</mat-option>
+            <mat-option value="Ingeniería Eléctrica"> Ingeniería Eléctrica</mat-option>
+            <mat-option value="Ingeniería Electrónica">Ingeniería Electrónica</mat-option>
+          </mat-select>
+          <mat-hint>Seleccione la facultad</mat-hint>
+          <mat-error>Campo obligatorio</mat-error>
+      </mat-form-field>
+        </div>
+        <div class="form-group mt-2" fxLayoutAlign="space-between" fxLayout="row wrap">
+          <mat-form-field appearance="outline">
+            <mat-label>Sede</mat-label>
+            <input matInput formControlName="sede" />
+            <mat-hint>Ingrese la sede</mat-hint>
+            <mat-error>La sede es obligatoria
+            </mat-error>
+        </mat-form-field>
+        </div>
 
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Identificación</label>
-              <input type="text" class="form-control form-control-sm" formControlName="identificacion">
-            </div>
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Teléfono</label>
-              <input type="text" class="form-control form-control-sm" formControlName="telefono">
-            </div>
-
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Primer Nombre</label>
-              <input type="text" class="form-control form-control-sm" formControlName="nombre1">
-            </div>
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Segundo Nombre</label>
-              <input type="text" class="form-control form-control-sm" formControlName="nombre2">
-            </div>
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Primer Apellido</label>
-              <input type="text" class="form-control form-control-sm" formControlName="apellido1">
-            </div>
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Segundo Apellido</label>
-              <input type="text" class="form-control form-control-sm" formControlName="apellido2">
-            </div>
-
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Facultad</label>
-              <select formControlName="facultad" class="form-select">
-                <option value="Artes">Artes</option>
-                <option value="Cliencias y Educación">Ciencias y educación</option>
-                <option value="Ingeniería">Ingeniería</option>
-                <option value="Medio Ambiente"> Medio Ambiente</option>
-                <option value="Tecnológica">Tecnológica</option>
-              </select>
-            </div>
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Proyecto</label>
-              <select formControlName="proyectocurricular" class="form-select">
-                <option value="Ingeniería de Sistemas">Ingeniería de Sistemas</option>
-                <option value="Ingeniería Catastral">Ingeniería Catastral</option>
-                <option value="Ingeniería Industrial">Ingeniería Industrial</option>
-                <option value="Ingeniería Eléctrica"> Ingeniería Eléctrica</option>
-                <option value="Ingeniería Electrónica">Ingeniería Electrónica</option>
-              </select>
-            </div>
-            <div class="col-md-12 mt-2">
-              <label class="form-label">Sede</label>
-              <input type="text" class="form-control form-control-sm" formControlName="sede">
-            </div>
-
-            <!-- <label for="formFile" class="form-label">Historia Clinica</label>
-              <input
-                class="form-control"
-                type="file"
-                id="formFile"
-                formControlName="historiaclinica"
-              />-->
+   
 
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">

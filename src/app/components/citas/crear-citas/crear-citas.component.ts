@@ -32,12 +32,12 @@ export class CrearCitasComponent implements OnInit {
     private toastr: ToastrService,
     private aRoute: ActivatedRoute) {
     this.crearCita = this.fb.group({
-      nombre: [_usuarioService.getUsuario('nombre'), Validators.required],
+      nombre: ['', Validators.required],
       fecha: ['', Validators.required],
       hora: ['', Validators.required],
       facultad: ['', Validators.required],
       tipocita: ['', Validators.required],
-      especialista: [' ', Validators.required],
+      especialista: ['', Validators.required],
     })
     this.id = this.aRoute.snapshot.paramMap.get('id');
   }
@@ -93,6 +93,7 @@ export class CrearCitasComponent implements OnInit {
     else {
       return;
     }
+    
   }
   agregarCita() {
     const cita: any = {
