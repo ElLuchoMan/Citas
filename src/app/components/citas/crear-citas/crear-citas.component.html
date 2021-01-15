@@ -77,12 +77,15 @@
               </ng-template>
           </mat-form-field>
            </div>
-                       <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
-              <button type="text" class="btn btn-primary" routerLink="/listarCitas">
-                Volver
-              </button>
-              <button type="submit" class="btn btn-primary">Agregar</button>
-            </div>
+           <mat-card-actions class="form-action mt-4" fxLayoutAlign="center" fxLayout.lt-sm="column">
+            <button class="card-button m-2" type="button" mat-raised-button routerLink="/listarCitas">
+              <mat-icon>arrow_back</mat-icon>Regresar
+            </button>
+            <button class="card-button m-2" type="submit" mat-raised-button [disabled]="!crearCita.valid">
+              <mat-icon>save</mat-icon> Guardar 
+            </button>
+            <mat-spinner *ngIf="crearCita.invalid"></mat-spinner>
+          </mat-card-actions>
           </form>
         </div>
       </div>

@@ -15,7 +15,7 @@ export class CrearEmpleadosComponent implements OnInit {
   submit = false;
   loading = false;
   id: string | null;
-  titulo = 'Agregar Empelado'
+  titulo = 'Agregar Especialista'
   constructor(private fb: FormBuilder,
     private _empleadoservice: EmpleadoService,
     private router: Router,
@@ -94,7 +94,7 @@ export class CrearEmpleadosComponent implements OnInit {
   }
   editarEmpleado() {
     if (this.id != null) {
-      this.titulo = "Editar Empelado";
+      this.titulo = "Editar Especialista";
       this.loading = true;
       this._empleadoservice.getEmpleado(this.id).subscribe(data => {
         this.loading = false;

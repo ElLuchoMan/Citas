@@ -14,13 +14,13 @@
   color: #fff;
   text-align: center;
   font-size: 3rem;
-  font-weight: 250;
+  font-weight: 300;
   letter-spacing: 0;
   line-height: normal;
 }
 
 .home-img {
-  height: 40vh;
+  height: 55vh;
 }
 
 .home-img:hover {
@@ -29,17 +29,17 @@
 }
 
 .mat-card-avatar {
-  font-size: 2rem;
+  font-size: 2.4rem;
   vertical-align: center;
   text-align: center;
   color: var(--azul-claro);
 }
 
 .card-button {
-  padding: 8px 25px !important;
+  padding: 10px 30px !important;
   background-color: var(--azul-claro);
   color: #fff;
-  font-weight: 180;
+  font-weight: 200;
   font-size: 1.2rem;
   border: 1px solid var(--azul-claro);
 }

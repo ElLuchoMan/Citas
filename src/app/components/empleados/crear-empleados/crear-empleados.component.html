@@ -9,49 +9,79 @@
               <span class="visually-hidden">Loading...</span>
             </div>
           </h3>
-          <span *ngIf="submit && crearEmpleado.invalid" class="badge rounded-pill bg-danger">*TODOS LOS CAMPOS SON
-            OBLIGATORIOS*</span>
-          <form class="mt-4" [formGroup]="crearEmpleado" (ngSubmit)="agregarEditarEmpleado()">
-            <div class="row">
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Identificación" formControlName="identificacion" />
+          <span *ngIf="submit && crearEmpleado.invalid" class="badge rounded-pill bg-danger">**DEBE LLENAR TODOS LOS
+            CAMPOS**</span>
+            <form autocomplete="off" class="mt-4 row g-3" [formGroup]="crearEmpleado" (ngSubmit)="agregarEditarEmpleado()">
+              <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                <mat-form-field appearance="outline">
+                  <mat-label>Número de Identificación</mat-label>
+                  <input matInput formControlName="identificacion" />
+                  <mat-hint>Ingrese el número de documento, actual:{{crearEmpleado.controls.identificacion.value.length}}
+                  </mat-hint>
+                  <mat-error>La identificación es obligatoria
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Teléfono contacto</mat-label>
+                  <input matInput formControlName="telefono" />
+                  <mat-hint>Ingrese el teléfono (fijo o celular), actual:{{crearEmpleado.controls.telefono.value.length}}
+                  </mat-hint>
+                  <mat-error>El teléfono es obligatorio </mat-error>
+                </mat-form-field>
               </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Primer Nombre" formControlName="nombre1" />
+  
+              <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                <mat-form-field appearance="outline">
+                  <mat-label>Primer Nombre</mat-label>
+                  <input matInput formControlName="nombre1" />
+                  <mat-hint>Ingrese el primer nombre</mat-hint>
+                  <mat-error>El nombre es obligatorio</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Segundo Nombre</mat-label>
+                  <input matInput formControlName="nombre2" />
+                  <mat-hint>Ingrese el segundo nombre</mat-hint>
+                </mat-form-field>
               </div>
-            </div>
-            <div class="row mt-2">
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Segundo Nombre" formControlName="nombre2" />
+              <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                <mat-form-field appearance="outline">
+                  <mat-label>Primer Apellido</mat-label>
+                  <input matInput formControlName="apellido1" />
+                  <mat-hint>Ingrese el primer apellido</mat-hint>
+                  <mat-error>El apellido es obligatorio</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Segundo Apellido</mat-label>
+                  <input matInput formControlName="apellido2" />
+                  <mat-hint>Ingrese el segundo apellido</mat-hint>
+                </mat-form-field>
               </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Primer Apellido" formControlName="apellido1" />
+              <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                <mat-form-field appearance="outline">
+                  <mat-label>Especialidad</mat-label>
+                  <input matInput formControlName="especialidad" />
+                  <mat-hint>Ingrese la especialidad</mat-hint>
+                  <mat-error>Especialidad obligatoria</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Sede</mat-label>
+                  <input matInput formControlName="sede" />
+                  <mat-hint>Ingrese la sede</mat-hint>
+                  <mat-error>Sede Obligatoria</mat-error>
+                </mat-form-field>
               </div>
-            </div>
-
-            <div class="row mt-2">
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Segundo Apellido" formControlName="apellido2" />
+             
+              <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                <mat-card-actions class="form-action mt-2" fxLayoutAlign="center" fxLayout.lt-sm="column">
+                  <button class="card-button m-2" type="button" mat-raised-button routerLink="/listarEmpleados">
+                    <mat-icon>arrow_back</mat-icon>Regresar
+                  </button>
+                  <button class="card-button m-2" type="submit" mat-raised-button [disabled]="!crearEmpleado.valid">
+                    <mat-icon>save</mat-icon> Guardar
+                  </button>
+                  <mat-spinner *ngIf="crearEmpleado.invalid"></mat-spinner>
+                </mat-card-actions>
               </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Especialidad" formControlName="especialidad" />
-              </div>
-            </div>
-            <div class="row mt-2">
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Sede" formControlName="sede" />
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="telefono" formControlName="telefono" />
-              </div>
-            </div>
-
-            <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
-              <button type="text" class="btn btn-primary" routerLink="/listarEmpleados">
-                Volver
-              </button>
-              <button type="submit" class="btn btn-primary">Agregar</button>
-            </div>
           </form>
         </div>
       </div>
