@@ -9,39 +9,50 @@
               <span class="visually-hidden">Loading...</span>
             </div>
           </h3>
-          <span *ngIf="submit && crearTipoCita.invalid" class="badge rounded-pill bg-danger">*TODOS LOS CAMPOS SON
-            OBLIGATORIOS*</span>
-          <form class="mt-4 row g-3" [formGroup]="crearTipoCita" (ngSubmit)="agregarTipoCita()">
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Nombre</label>
-              <input type="text" class="form-control form-control-sm" formControlName="nombre" />
-            </div>
-            <div class="col-md-6 mt-2">
-              <label class="form-label">Facultad</label>
-              <select formControlName="facultad" class="form-select">
-                <option value="Artes">Artes</option>
-                <option value="Cliencias y Educación">
-                  Ciencias y educación
-                </option>
-                <option value="Ingeniería">Ingeniería</option>
-                <option value="Medio Ambiente">Medio Ambiente</option>
-                <option value="Tecnológica">Tecnológica</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Descripción</label>
-              <textarea class="form-control" formControlName="descripcion" rows="3"></textarea>
-            </div>
+          <span *ngIf="submit && crearTipoCita.invalid" class="badge rounded-pill bg-danger">**DEBE LLENAR TODOS LOS
+            CAMPOS**</span>
+            <form autocomplete="off" class="mt-4 row g-3" [formGroup]="crearTipoCita" (ngSubmit)="agregarEditarTipoCita()">
+              <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre" />
+                <mat-hint>Nombre de la especialidad</mat-hint>
+                <mat-error>La facultad es obligatoria</mat-error>
+            </mat-form-field>
+                <mat-form-field appearance="outline">
+                <mat-label>Facultad</mat-label>
+                <input matInput formControlName="facultad" />
+                <mat-error>La facultad es obligatoria</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group" fxLayoutAlign="center">
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Descripción</mat-label>
+                <textarea matInput 
+                    formControlName="descripcion"></textarea>
+                <mat-icon matPrefix>message</mat-icon>
+                <mat-error>Ingrese una descripción válida</mat-error>
+                               </mat-form-field>
+          </div>
+          <mat-card-actions class="form-action mt-4" fxLayoutAlign="center" fxLayout.lt-sm="column">
+            <button class="card-button m-2" type="button" mat-raised-button routerLink="/listarTipoCitas">
+              <mat-icon>arrow_back</mat-icon>Regresar
+            </button>
+            <button class="card-button m-2" type="submit" mat-raised-button [disabled]="!crearTipoCita.valid">
+              <mat-icon>save</mat-icon> Guardar 
+            </button>
+            <mat-spinner *ngIf="crearTipoCita.invalid"></mat-spinner>
+          </mat-card-actions>
+  
+  
 
-            <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
-              <button type="text" class="btn btn-primary" routerLink="/listarTipoCitas">
-                Volver
-              </button>
-              <button type="submit" class="btn btn-primary">Agregar</button>
-            </div>
-          </form>
-        </div>
+               
+       
+         
+
+        </form>
       </div>
     </div>
   </div>
+</div>
 </div>

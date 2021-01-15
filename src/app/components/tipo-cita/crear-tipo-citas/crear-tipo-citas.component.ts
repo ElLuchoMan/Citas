@@ -15,7 +15,7 @@ export class CrearTipoCitasComponent implements OnInit {
   submit = false;
   loading = false;
   id: string;
-  titulo = 'Agregar Tipo Cita';
+  titulo = 'Agregar Especialidad';
   constructor(
     private fb: FormBuilder,
     private _tipoCitaService: TipoCitaService,

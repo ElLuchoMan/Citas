@@ -89,15 +89,17 @@
                 </mat-error>
               </mat-form-field>
             </div>
-            <mat-card-actions class="form-action mt-4" fxLayoutAlign="center" fxLayout.lt-sm="column">
+            <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+            <mat-card-actions class="form-action mt-2" fxLayoutAlign="center" fxLayout.lt-sm="column">
               <button class="card-button m-2" type="button" mat-raised-button routerLink="/listarUsuarios">
-                <mat-icon>arrow_back</mat-icon>Regresar al listado
+                <mat-icon>arrow_back</mat-icon>Regresar
               </button>
               <button class="card-button m-2" type="submit" mat-raised-button [disabled]="!crearUsuario.valid">
-                <mat-icon>save</mat-icon> Guardar Usuario
+                <mat-icon>save</mat-icon> Guardar
               </button>
               <mat-spinner *ngIf="crearUsuario.invalid"></mat-spinner>
             </mat-card-actions>
+          </div>
           </form>
         </div>
       </div>
