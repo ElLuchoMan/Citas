@@ -34,6 +34,7 @@ export class ListarUsuariosComponent implements OnInit {
 
     })
   }
+ 
   eliminarUsuario(id: string) {
     this._usuarioService.eliminarUsuarios(id).then(() => {
       this.toastr.error('Empleado Eliminado', 'El empleado se eliminó con éxito');

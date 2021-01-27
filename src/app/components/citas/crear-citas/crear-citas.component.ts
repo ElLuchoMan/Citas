@@ -50,8 +50,9 @@ export class CrearCitasComponent implements OnInit {
     this.getEmpleados();
   }
   private getUsuarios(){
-    this.usuarios =[];
+    
     this._usuarioService.getUsuarios().subscribe(data=>{
+      this.usuarios =[];
       data.forEach((element:any)=>{
           this.usuarios.push({
           id: element.payload.doc.id,

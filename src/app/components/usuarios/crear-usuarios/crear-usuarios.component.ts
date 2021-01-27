@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { InfoService } from '../../../services/info.service';
 
 @Component({
   selector: 'app-crear-usuarios',
@@ -13,6 +14,8 @@ export class CrearUsuariosComponent implements OnInit {
   crearUsuario: FormGroup;
   submit = false;
   loading = false;
+  facultades: any[] = [];
+  carreras: any[] = [];
 
   id: string | null;
   titulo = 'Agregar Usuario';
@@ -20,7 +23,8 @@ export class CrearUsuariosComponent implements OnInit {
     private _usuarioService: UsuariosService,
     private router: Router,
     private toastr: ToastrService,
-    private aRoute: ActivatedRoute) {
+    private aRoute: ActivatedRoute,
+    private _infoServices: InfoService,) {
     this.crearUsuario = this.fb.group({
       identificacion: ['', Validators.required],
       nombre1: ['', Validators.required],
@@ -38,7 +42,31 @@ export class CrearUsuariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.editarUsuario();
+    this.getFacultades();
+    // this.getSedes();
   }
+  getFacultades() {
+    this._infoServices.getFacultad().subscribe(data => {
+      this.facultades = [];
+      data.forEach((element: any) => {
+        this.facultades.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+
+        })
+      });
+    })
+  }
+  getSedes(){
+    if (this.facultades != null){
+      this._infoServices.getSede(this.id).subscribe(data => {
+         this.crearUsuario.setValue({
+          sede: data.payload.data()['carrera'],
+        })
+      })
+    }
+      }
+
   agregarEditarUsuario() {
     console.log(this.crearUsuario);
     this.submit = true;
